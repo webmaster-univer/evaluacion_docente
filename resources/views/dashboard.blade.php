@@ -151,4 +151,3 @@
         </div>
     </div>
 </x-app-layout>
-<!-- commit de prueba -->
