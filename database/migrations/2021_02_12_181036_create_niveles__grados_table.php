@@ -27,6 +27,6 @@ class CreateNivelesGradosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('niveles__grados');
+        Schema::dropIfExists('niveles_grados');
     }
 }
