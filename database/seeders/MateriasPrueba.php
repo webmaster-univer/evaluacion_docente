@@ -16,28 +16,28 @@ class MateriasPrueba extends Seeder
      */
     public function run()
     {
-            for ($i=1; $i <=4 ; $i++) { 
+            for ($i=1; $i <=4 ; $i++) {
 
     		DB::table('materias')->insert([
-            'descripcion' => Str::random(10),
+            'descripcion' => 'Materia  '.Str::random(5),
             'alumno_id' => $i,
             'grupo_id' => $i,
             'docente_id' => 1,
         	]);
         	   DB::table('materias')->insert([
-            'descripcion' => Str::random(10),
+            'descripcion' => 'Materia  '.Str::random(5),
             'alumno_id' => $i,
             'grupo_id' => $i,
             'docente_id' => 2,
         	]);
         	  DB::table('materias')->insert([
-            'descripcion' => Str::random(10),
+            'descripcion' => 'Materia  '.Str::random(5),
             'alumno_id' => $i,
             'grupo_id' => $i,
             'docente_id' => 3,
         	]);
         	   DB::table('materias')->insert([
-            'descripcion' => Str::random(10),
+            'descripcion' => 'Materia  '.Str::random(5),
             'alumno_id' => $i,
             'grupo_id' => $i,
             'docente_id' => 4,
