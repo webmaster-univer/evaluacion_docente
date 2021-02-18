@@ -13,27 +13,26 @@
             </div>
         </div>
         @foreach($preguntas as $pregunta)
-        <div class="flex items-center justify-center p-4 mt-4 bg-white rounded-md shadow-md">
-            <span class="text-xl tracking-wider text-gray-500 uppercase">{{$pregunta->pregunta}}</span>
+        <div class="flex items-center justify-center p-4 mt-4 bg-red-500 rounded-md shadow-md">
+            <span class="text-xl tracking-wider  uppercase">{{$pregunta->descripcion}}</span>
         </div>
+
         <div class="grid grid-cols-1 gap-6 mt-4 md:grid-cols-2">
 
 
+                @foreach($respuestas as $respuesta)
+                @if($respuesta->pregunta_id == $pregunta->id)
             <div class="flex items-center justify-center w-full h-32 bg-white rounded-md shadow-md">
-                <span class="text-xl tracking-wider text-gray-500 uppercase">placeholder</span>
+                <span class="text-xl tracking-wider text-gray-500 uppercase">{{$respuesta->descripcion}}</span>
+
+                    <input type="radio" name="pregunta{{$respuesta->pregunta_id}}" id="pregunta{{$respuesta->pregunta_id}}"   class="form-radio h-5 w-5 text-blue-600" ><span class="ml-2 text-gray-700"></span>
+
             </div>
 
-            <div class="flex items-center justify-center w-full h-32 bg-white rounded-md shadow-md">
-                <span class="text-xl tracking-wider text-gray-500 uppercase">placeholder</span>
-            </div>
+                @endif
+            @endforeach
 
-            <div class="flex items-center justify-center w-full h-32 bg-white rounded-md shadow-md">
-                <span class="text-xl tracking-wider text-gray-500 uppercase">placeholder</span>
-            </div>
 
-            <div class="flex items-center justify-center w-full h-32 bg-white rounded-md shadow-md">
-                <span class="text-xl tracking-wider text-gray-500 uppercase">placeholder</span>
-            </div>
         </div>
         @endforeach
         <div class="grid grid-cols-1 gap-6 my-4 mt-4">

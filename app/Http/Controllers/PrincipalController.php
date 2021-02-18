@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Preguntas;
 use Illuminate\Http\Request;
-use App\Models\Materias;
+use App\Models\Respuestas;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,13 +49,20 @@ class PrincipalController extends Controller
      */
     public function edit($id)
     {
-        $preguntas = DB::table('preguntas')
+        /*$preguntas = DB::table('preguntas')
             ->leftjoin('respuestas', function ($join){
-                $join->on('preguntas.id', '=', 'respuestas.pregunta_id');
-            })
-            ->select('preguntas.descripcion AS pregunta','respuestas.descripcion AS respuesta','respuestas.puntos')->distinct()
-
+            $join->on('preguntas.id', '=', 'respuestas.pregunta_id');
+        })->select('preguntas.descripcion AS pregunta','respuestas.descripcion AS respuesta',
+                'respuestas.puntos','preguntas.id AS preguntaID','respuestas.id AS respuestaID','respuestas.pregunta_id')
             ->get();
+        */
+        $respuestas = new Respuestas();
+        $respuestas = $respuestas->all();
+        $preguntas = new Preguntas();
+        $preguntas = $preguntas->all();
+
+
+
         $docente = DB::table('materias')
             ->leftjoin('docentes', function ($join){
             $join->on('docentes.id', '=', 'materias.docente_id');
@@ -62,7 +70,7 @@ class PrincipalController extends Controller
             ->select('docentes.nombre_completo','materias.descripcion')
             ->where('materias.id',$id)->first();
 
-        return view('evaluar',compact('preguntas','docente'));
+        return view('evaluar',compact('preguntas','docente','respuestas'));
     }
 
     /**
