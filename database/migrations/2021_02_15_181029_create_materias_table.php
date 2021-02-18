@@ -19,6 +19,7 @@ class CreateMateriasTable extends Migration
             $table->integer('alumno_id');
             $table->integer('grupo_id');
             $table->integer('docente_id');
+            $table->boolean('contestada')->default(0);
             $table->timestamps();
         });
     }
