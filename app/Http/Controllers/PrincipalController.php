@@ -69,10 +69,17 @@ class PrincipalController extends Controller
             ->leftjoin('docentes', function ($join){
             $join->on('docentes.id', '=', 'materias.docente_id');
         })
-            ->select('docentes.nombre_completo','materias.descripcion','materias.id')
+            ->select('docentes.nombre_completo','materias.descripcion','materias.id','materias.contestada')
             ->where('materias.id',$id)->first();
 
+        if($docente->contestada == 1)
+        {
+            return redirect('principal');
+        }
+        else
+        {
         return view('evaluar',compact('preguntas','docente','respuestas'));
+        }
     }
 
     /**
