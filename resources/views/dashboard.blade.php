@@ -9,8 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
-            <!-- Inicia tabla-->
-            <div>
+<!-- ******************************   Inicia tabla   *****************************************-->
       <table class="min-w-full table-auto">
         <thead class="justify-between">
           <tr class="bg-gray-800">
@@ -81,7 +80,7 @@
         </tbody>
       </table>
     </div>
-  <!-- fin tabla -->
+  <!-- **********************************   fin tabla ***************************************-->
 
             </div>
         </div>
