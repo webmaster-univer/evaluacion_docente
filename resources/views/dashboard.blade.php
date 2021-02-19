@@ -6,14 +6,12 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <!-- ******************************   Inicia tabla   *****************************************-->
       <table class="min-w-full table-auto">
         <thead class="justify-between">
           <tr class="bg-gray-800">
-
             <th class="px-16 py-2">
               <span class="text-gray-300">Materia</span>
             </th>
@@ -23,8 +21,6 @@
             <th class="px-16 py-2">
               <span class="text-gray-300">Nombre docente</span>
             </th>
-
-
             <th class="px-16 py-2">
               <span class="text-gray-300">Status</span>
             </th>
@@ -79,9 +75,7 @@
 
         </tbody>
       </table>
-    </div>
   <!-- **********************************   fin tabla ***************************************-->
-
             </div>
         </div>
     </div>
