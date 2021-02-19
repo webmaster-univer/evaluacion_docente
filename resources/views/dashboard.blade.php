@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <!-- ******************************   Inicia tabla   *****************************************-->
       <table class="min-w-full table-auto">
         <thead class="justify-between">
@@ -37,9 +37,15 @@
             </td>
             <td class="px-16 py-2">
                 <a href="{{route('principal.edit',$materia->id)}}">
-              <button class="bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black ">
+                    @if($materia->contestada == 0)
+              <button  class="bg-blue-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black ">
                 Evaluar
               </button>
+                    @else
+                        <button disabled class="px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black ">
+                            Evaluar
+                        </button>
+                        @endif
                 </a>
             </td>
             <td class="px-16 py-2">
