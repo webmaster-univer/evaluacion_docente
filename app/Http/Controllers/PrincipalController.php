@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Materias;
 use App\Models\Preguntas;
 use Illuminate\Http\Request;
 use App\Models\Respuestas;
+use App\Models\EvaluacionContestada;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -67,7 +69,7 @@ class PrincipalController extends Controller
             ->leftjoin('docentes', function ($join){
             $join->on('docentes.id', '=', 'materias.docente_id');
         })
-            ->select('docentes.nombre_completo','materias.descripcion')
+            ->select('docentes.nombre_completo','materias.descripcion','materias.id')
             ->where('materias.id',$id)->first();
 
         return view('evaluar',compact('preguntas','docente','respuestas'));
@@ -80,9 +82,28 @@ class PrincipalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
 
+        $materias = Materias::find($id);
+        $materias ->contestada = 1;
+        $materias ->save();
+
+        $resultados = new EvaluacionContestada();
+        $resultados ->pregunta1 = $request->pregunta1;
+        $resultados ->pregunta2 = $request->pregunta2;
+        $resultados ->pregunta3 = $request->pregunta3;
+        $resultados ->pregunta4 = $request->pregunta4;
+        $resultados ->pregunta5 = $request->pregunta5;
+        $resultados ->pregunta6 = $request->pregunta6;
+        $resultados ->alumno_id = $materias->alumno_id;
+        $resultados ->grupo_id	 = $materias->grupo_id;
+        $resultados ->docente_id = $materias->docente_id;
+        $resultados ->total = $request->pregunta1 + $request->pregunta2 + $request->pregunta3 + $request->pregunta4 + $request->pregunta5 + $request->pregunta6;
+        $resultados ->save();
+
+
+        return redirect('principal');
 
     }
 
