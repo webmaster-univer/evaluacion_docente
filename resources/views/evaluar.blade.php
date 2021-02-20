@@ -42,15 +42,17 @@
             </div>
         </div>
     @endforeach
-</form>
-
-    <!--************************************  Botones de cancelar y calificar   *****************************************-->
-    <div class="pt-4 flex items-center space-x-4">
-        <button class="bg-red-500 flex justify-center items-center w-full text-gray-900 px-4 py-3 rounded-md focus:outline-none">
-            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Cancelar
-        </button>
-        <button class="bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none">Calificar</button>
+<!--************************************************************   Botones   ****************************************************************-->
+    <div class="flex justify-center">
+        <div class="card-body p-4">
+            <div class="btn-group">
+                <a href="{{route('principal.index')}}">
+                    <button type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-red-500 hover:bg-red-700 text-white font-normal py-6 px-16 mr-5 rounded">Cancelar</button>
+                </a>
+                <button type="submit" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-blue-500 hover:bg-blue-700 text-white font-normal py-6 px-16 mr-5 rounded">Calificar</button>
+            </div>
+        </div>
     </div>
-<!--************************************  Fin de seccion de botones   ***********************************************-->
+</form>
 
 </x-app-layout>
