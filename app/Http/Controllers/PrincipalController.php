@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grupos;
 use App\Models\Materias;
 use App\Models\Preguntas;
 use Illuminate\Http\Request;
 use App\Models\Respuestas;
 use App\Models\User;
+use App\Models\AlumnosGrupos;
 use App\Models\Alumnos;
 use Illuminate\Support\Facades\Hash;
 use App\Models\EvaluacionContestada;
@@ -21,7 +23,7 @@ class PrincipalController extends Controller
 
         $materias = DB::table('alumnos')
         ->leftjoin('alumnos_grupos', function ($join){
-            $join->on('alumnos_grupos.alumno', '=', 'alumnos.nombre_completo');
+            $join->on('alumnos_grupos.alumno_id', '=', 'alumnos.id');
         })
          ->leftjoin('materias', function ($join){
             $join->on('materias.grupo', '=', 'alumnos_grupos.grupo');
@@ -126,6 +128,44 @@ class PrincipalController extends Controller
             $usuario->password =Hash::make('123');
             $usuario->alumno_id = $alumno->id;
             $usuario->save();
+        }
+
+
+    }
+    public function AgregarIds()
+    {
+        $alumnos = new AlumnosGrupos();
+        $alumnos = $alumnos->all();
+
+        foreach ($alumnos as $alumno)
+        {
+
+            $cambio = AlumnosGrupos::where('alumno',$alumno->alumno)->get();
+            foreach ($cambio as $cambio){
+                $usuario = Alumnos::where('nombre_completo',$cambio->alumno)->first();
+                $cambio->alumno_id = $usuario->id;
+                $cambio->save();
+            }
+
+        }
+
+
+    }
+    public function AgregarIdsGrupos()
+    {
+        $alumnos = new AlumnosGrupos();
+        $alumnos = $alumnos->all();
+
+        foreach ($alumnos as $alumno)
+        {
+
+            $cambio = AlumnosGrupos::where('grupo',$alumno->grupo)->get();
+            foreach ($cambio as $cambio){
+                $usuario = Grupos::where('descripcion',$cambio->grupo)->first();
+                $cambio->grupo_id = $usuario->id;
+                $cambio->save();
+            }
+
         }
 
 
