@@ -18,9 +18,9 @@ class CreateAlumnosTable extends Migration
             $table->string('id_pwc');
             $table->string('nombre_completo');
             $table->integer('plantel_id');
-            $table->integer('grupo_id');
+            //$table->integer('grupo_id');
             $table->integer('grado_id');
-            $table->integer('nivel_grado_id');
+            //$table->integer('nivel_grado_id');
             $table->timestamps();
         });
     }

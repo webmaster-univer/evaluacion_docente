@@ -16,6 +16,7 @@ class DatosDePrueba extends Seeder
      */
     public function run()
     {
+        /*
     	for ($i=1; $i <=4 ; $i++) {
     		DB::table('users')->insert([
             'name' => 'Fulanito '.Str::random(5),
@@ -45,6 +46,7 @@ class DatosDePrueba extends Seeder
         ]);
 
     	}
+        */
         DB::table('preguntas')->insert([
             'descripcion' => "¿Como fue la Carta Descriptiva a Moodle?",
         ]);

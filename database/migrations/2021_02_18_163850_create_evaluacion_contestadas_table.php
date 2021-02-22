@@ -16,8 +16,8 @@ class CreateEvaluacionContestadasTable extends Migration
         Schema::create('evaluacion_contestadas', function (Blueprint $table) {
             $table->id();
             $table->integer('alumno_id');
-            $table->integer('grupo_id');
-            $table->integer('docente_id');
+            $table->string('grupo');
+            $table->string('docente');
             $table->integer('pregunta1');
             $table->integer('pregunta2');
             $table->integer('pregunta3');
