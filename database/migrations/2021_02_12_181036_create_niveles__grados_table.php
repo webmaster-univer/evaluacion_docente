@@ -13,11 +13,13 @@ class CreateNivelesGradosTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('niveles_grados', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
             $table->timestamps();
         });
+        */
     }
 
     /**
