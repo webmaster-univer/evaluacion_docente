@@ -29,7 +29,7 @@ class PrincipalController extends Controller
             $join->on('materias.grupo', '=', 'alumnos_grupos.grupo');
         })
             ->where('materias.alumno',Auth::user()->name)
-         ->select('alumnos_grupos.grupo','materias.docente AS docente','materias.contestada','materias.id')
+         ->select('materias.descripcion','materias.docente AS docente','materias.contestada','materias.id')
             ->distinct()
          ->get();
 
