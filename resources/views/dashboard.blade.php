@@ -32,7 +32,7 @@
 
             <td>
 
-              <span class="text-center ml-2 font-semibold">{{$materia->grupo}}</span>
+              <span class="text-center ml-2 font-semibold">{{$materia->descripcion}}</span>
 
             </td>
             <td class="px-16 py-2">
