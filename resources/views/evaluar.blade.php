@@ -8,6 +8,8 @@
 <!-- Fin de header -->
 
 <form method="POST" action="{{ route('principal.update',$docente->id) }}" aria-label="{{ __('Evaluacion') }}" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
     @foreach($preguntas as $pregunta)
         <div class="py-6">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

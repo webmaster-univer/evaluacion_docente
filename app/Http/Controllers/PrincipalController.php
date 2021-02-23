@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grupos;
 use App\Models\Materias;
 use App\Models\Preguntas;
 use Illuminate\Http\Request;
 use App\Models\Respuestas;
+use App\Models\User;
+use App\Models\AlumnosGrupos;
+use App\Models\Alumnos;
+use Illuminate\Support\Facades\Hash;
 use App\Models\EvaluacionContestada;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -17,20 +22,15 @@ class PrincipalController extends Controller
 
 
         $materias = DB::table('alumnos')
-        ->leftjoin('grupos', function ($join){
-            $join->on('grupos.id', '=', 'alumnos.grupo_id');
+        ->leftjoin('alumnos_grupos', function ($join){
+            $join->on('alumnos_grupos.alumno_id', '=', 'alumnos.id');
         })
          ->leftjoin('materias', function ($join){
-            $join->on('materias.grupo_id', '=', 'grupos.id');
+            $join->on('materias.grupo', '=', 'alumnos_grupos.grupo');
         })
-           ->leftjoin('users', function ($join){
-            $join->on('users.alumno_id', '=', 'alumnos.id');
-        })
-             ->leftjoin('docentes', function ($join){
-            $join->on('docentes.id', '=', 'materias.docente_id');
-        })
-         ->Where('users.alumno_id',Auth::user()->alumno_id)
-         ->select('materias.descripcion','docentes.nombre_completo AS docente','materias.contestada','materias.id')
+            ->where('materias.alumno',Auth::user()->name)
+         ->select('materias.descripcion','materias.docente AS docente','materias.contestada','materias.id')
+            ->distinct()
          ->get();
 
         return view('dashboard',compact('materias'));
@@ -67,7 +67,7 @@ class PrincipalController extends Controller
 
         $docente = DB::table('materias')
             ->leftjoin('docentes', function ($join){
-            $join->on('docentes.id', '=', 'materias.docente_id');
+            $join->on('docentes.nombre_completo', '=', 'materias.docente');
         })
             ->select('docentes.nombre_completo','materias.descripcion','materias.id','materias.contestada')
             ->where('materias.id',$id)->first();
@@ -103,14 +103,71 @@ class PrincipalController extends Controller
         $resultados ->pregunta4 = $request->pregunta4;
         $resultados ->pregunta5 = $request->pregunta5;
         $resultados ->pregunta6 = $request->pregunta6;
-        $resultados ->alumno_id = $materias->alumno_id;
-        $resultados ->grupo_id	 = $materias->grupo_id;
-        $resultados ->docente_id = $materias->docente_id;
+        $resultados ->alumno_id = Auth::user()->id;
+        $resultados ->grupo	 = $materias->grupo;
+        $resultados ->docente = $materias->docente;
         $resultados ->total = $request->pregunta1 + $request->pregunta2 + $request->pregunta3 + $request->pregunta4 + $request->pregunta5 + $request->pregunta6;
         $resultados ->save();
 
 
         return redirect('principal');
+
+    }
+
+    public function CrearUsuarios()
+    {
+        $alumnos = new Alumnos();
+        $alumnos = $alumnos->where('id','>','3928')->get();
+
+        foreach ($alumnos as $alumno)
+        {
+            $usuario = new User();
+            $usuario->name = $alumno->nombre_completo;
+            $usuario->username = $alumno->id_pwc;
+            $usuario->email = $alumno->id_pwc."@alumnos.univer-gdl.edu.mx";
+            $usuario->password =Hash::make('123');
+            $usuario->alumno_id = $alumno->id;
+            $usuario->save();
+        }
+
+
+    }
+    public function AgregarIds()
+    {
+        $alumnos = new AlumnosGrupos();
+        $alumnos = $alumnos->all();
+
+        foreach ($alumnos as $alumno)
+        {
+
+            $cambio = AlumnosGrupos::where('alumno',$alumno->alumno)->get();
+            foreach ($cambio as $cambio){
+                $usuario = Alumnos::where('nombre_completo',$cambio->alumno)->first();
+                $cambio->alumno_id = $usuario->id;
+                $cambio->save();
+            }
+
+        }
+
+
+    }
+    public function AgregarIdsGrupos()
+    {
+        $alumnos = new AlumnosGrupos();
+        $alumnos = $alumnos->all();
+
+        foreach ($alumnos as $alumno)
+        {
+
+            $cambio = AlumnosGrupos::where('grupo',$alumno->grupo)->get();
+            foreach ($cambio as $cambio){
+                $usuario = Grupos::where('descripcion',$cambio->grupo)->first();
+                $cambio->grupo_id = $usuario->id;
+                $cambio->save();
+            }
+
+        }
+
 
     }
 

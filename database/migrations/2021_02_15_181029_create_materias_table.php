@@ -16,9 +16,9 @@ class CreateMateriasTable extends Migration
         Schema::create('materias', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->integer('alumno_id');
-            $table->integer('grupo_id');
-            $table->integer('docente_id');
+            $table->string('alumno');
+            $table->string('grupo');
+            $table->string('docente');
             $table->boolean('contestada')->default(0);
             $table->timestamps();
         });
