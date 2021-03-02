@@ -48,112 +48,147 @@ class DatosDePrueba extends Seeder
     	}
         */
         DB::table('preguntas')->insert([
-            'descripcion' => "¿Como fue la Carta Descriptiva a Moodle?",
+            'descripcion' => "Objetivos del Curso",
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Subió carta descriptiva antes del inicio de clases",
+            'descripcion' => "El curso cumplió el programa establecido y además logró profundizar",
             'pregunta_id' => '1',
             'puntos' => '5',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Subió carta descriptiva entre primera y segunda clase",
+            'descripcion' => "El curso cumplió con algunos de los objetivos pero otros no",
             'pregunta_id' => '1',
             'puntos' => '3',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Subió carta descriptiva después de la 2da clase",
+            'descripcion' => "El curso no cumplió con los objetivos que fueron establecidos",
             'pregunta_id' => '1',
             'puntos' => '1',
         ]);
         DB::table('preguntas')->insert([
-            'descripcion' => "¿Como fue la calidad de Planeación Didáctica?",
+            'descripcion' => "Didáctica de Clase",
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Elaboró planeación didáctica modelo",
+            'descripcion' => "El curso tuvo una gran riqueza en su impartición al integrar una amplia gama de técnicas didácticas",
             'pregunta_id' => '2',
             'puntos' => '5',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Elaboró su planeación bien pero de manera parcial o con algunos errores",
+            'descripcion' => "Hubo muchos elementos valiosos en la didáctica pero también hubo  problemas",
             'pregunta_id' => '2',
             'puntos' => '3',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Elaboró su planeación con algunos aspectos correctos pero muy incompleto y con muchos errores",
+            'descripcion' => "La mecánica de clase resultó muy monótona y carente de técnica didáctica",
             'pregunta_id' => '2',
             'puntos' => '1',
         ]);
         DB::table('preguntas')->insert([
-            'descripcion' => "Exámenes",
+            'descripcion' => "La Evaluación",
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Aplicó evaluación en tiempo y forma",
+            'descripcion' => "La evaluación fue clara, consistente y justa. Siempre hubo apertura y retroalimentación",
             'pregunta_id' => '3',
             'puntos' => '5',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Debe mejorar evaluación en aspectos clave",
+            'descripcion' => "La evaluación fue clara y justa pero no estoy de acuerdo con algunos elementos",
             'pregunta_id' => '3',
             'puntos' => '3',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Aplicó en destiempo y/o con serias deficiencias",
+            'descripcion' => "Nunca quedaron claros los criterios para evaluar y se manejó con retrasos y confusiones constantes",
             'pregunta_id' => '3',
             'puntos' => '1',
         ]);
         DB::table('preguntas')->insert([
-            'descripcion' => "Diversidad Metodológica",
+            'descripcion' => "Contenidos",
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Integró una gran cantidad de recursos didácticos",
+            'descripcion' => "Los contenidos vistos en clase son muy pertinentes a la carrera y claves en mi formación profesional",
             'pregunta_id' => '4',
             'puntos' => '5',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Maneja suficiente diversidad metodológica pero le faltan recursos clave",
+            'descripcion' => "Los contenidos vistos en clase fueron importantes pero hubo temas sin sentido o pertinencia",
             'pregunta_id' => '4',
             'puntos' => '3',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Maneja muy poca diversidad en sus estrategias de  enseñanza",
+            'descripcion' => "Los contenidos vistos en clase fueron importantes pero hubo temas sin sentido o pertinencia",
             'pregunta_id' => '4',
             'puntos' => '1',
         ]);
         DB::table('preguntas')->insert([
-            'descripcion' => "Manejo de Plataforma Digital",
+            'descripcion' => "Ambiente de trabajo en clase",
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Utilizó ampliamente la plataforma digital",
+            'descripcion' => "El grupo es muy participativo y existe un ambiente de respeto y trabajo",
             'pregunta_id' => '5',
             'puntos' => '5',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Hizo un uso adecuado de la plataforma pero limitadamente",
+            'descripcion' => "El grupo es disperso. No hay mucha participación pero se puede trabajar adecuadamente",
             'pregunta_id' => '5',
             'puntos' => '3',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "No usó la plataforma o solo en cuestiones muy básicas",
+            'descripcion' => "El grupo es muy descontrolado. Falta mucho orden y disciplina",
             'pregunta_id' => '5',
             'puntos' => '1',
         ]);
         DB::table('preguntas')->insert([
-            'descripcion' => "Academias y Capacitaciones",
+            'descripcion' => "Aspectos Formales",
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Asistió y participó activamente en todas las sesiones",
+            'descripcion' => "¿Se subió el programa de la materia en tiempo a la plataforma al inicio del curso?",
             'pregunta_id' => '6',
-            'puntos' => '5',
+            'puntos' => '0',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Sólo asistió activamente a la mitad de las sesiones",
+            'descripcion' => "¿Te quedaron claras las reglas y los criterios de la clase?",
             'pregunta_id' => '6',
-            'puntos' => '3',
+            'puntos' => '0',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "Asistió a menos de la mitad de las sesiones",
+            'descripcion' => "¿El maestro faltó dos o más veces a la clase?",
             'pregunta_id' => '6',
-            'puntos' => '1',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿El maestro fue puntual en llegar a clase?",
+            'pregunta_id' => '6',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿Se nombró lista regularmente?",
+            'pregunta_id' => '6',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿El maestro resolvió adecuadamente mis dudas?",
+            'pregunta_id' => '6',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿Se aprovecharon los recursos de la plataforma Moodle?",
+            'pregunta_id' => '6',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿Se fomentó la investigación en Internet?",
+            'pregunta_id' => '6',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿Existió diversidad de recursos digitales en la implementación de clase? ",
+            'pregunta_id' => '6',
+            'puntos' => '0',
+        ]);
+        DB::table('respuestas')->insert([
+            'descripcion' => "¿Existió un ambiente de cordialidad y respeto?",
+            'pregunta_id' => '6',
+            'puntos' => '0',
         ]);
     }
 }
