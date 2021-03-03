@@ -54,10 +54,13 @@
             </div>
         </div>
     @endforeach
+<!--************************************************************   Textarea   ***************************************************************-->
+
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <label for="observaciones">Sugerencias</label>
-        <textarea class="form-control notemptyField" rows="5" id="observaciones" name="observaciones" ></textarea>
+        <label for="observaciones" class="font-semibold text-gray-500">Sugerencias:</label><br>
+        <textarea class="resize-none border-gray-300 font-semibold text-gray-800 w-full px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"></textarea>
     </div>
+
 <!--************************************************************   Botones   ****************************************************************-->
     <div class="flex justify-center">
         <div class="card-body p-4">
