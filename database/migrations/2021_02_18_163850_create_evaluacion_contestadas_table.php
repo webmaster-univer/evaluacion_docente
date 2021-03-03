@@ -18,6 +18,7 @@ class CreateEvaluacionContestadasTable extends Migration
             $table->integer('alumno_id');
             $table->string('grupo');
             $table->string('docente');
+            $table->integer('plantel_id');
             $table->integer('pregunta1');
             $table->integer('pregunta2');
             $table->integer('pregunta3');
@@ -25,6 +26,7 @@ class CreateEvaluacionContestadasTable extends Migration
             $table->integer('pregunta5');
             $table->integer('pregunta6');
             $table->integer('total');
+            $table->text('observaciones');
             $table->timestamps();
         });
     }

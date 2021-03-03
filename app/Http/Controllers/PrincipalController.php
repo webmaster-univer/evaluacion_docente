@@ -102,11 +102,15 @@ class PrincipalController extends Controller
         $resultados ->pregunta3 = $request->pregunta3;
         $resultados ->pregunta4 = $request->pregunta4;
         $resultados ->pregunta5 = $request->pregunta5;
-        $resultados ->pregunta6 = $request->pregunta6;
+        $resultados ->pregunta6 = $request->pregunta16
+            + $request->pregunta17 + $request->pregunta18 + $request->pregunta19 + $request->pregunta20 + $request->pregunta21 + $request->pregunta22 + $request->pregunta23
+            + $request->pregunta24 + $request->pregunta25;
         $resultados ->alumno_id = Auth::user()->id;
+        $resultados ->plantel_id = $materias->plantel_id;
         $resultados ->grupo	 = $materias->grupo;
         $resultados ->docente = $materias->docente;
-        $resultados ->total = $request->pregunta1 + $request->pregunta2 + $request->pregunta3 + $request->pregunta4 + $request->pregunta5 + $request->pregunta6;
+        $resultados ->total = $request->pregunta1 + $request->pregunta2 + $request->pregunta3 + $request->pregunta4 + $request->pregunta5 + $resultados ->pregunta6;
+        $resultados ->observaciones = $request->observaciones;
         $resultados ->save();
 
 
