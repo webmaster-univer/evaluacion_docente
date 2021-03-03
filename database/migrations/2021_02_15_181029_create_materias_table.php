@@ -19,6 +19,7 @@ class CreateMateriasTable extends Migration
             $table->string('alumno');
             $table->string('grupo');
             $table->string('docente');
+            $table->integer('plantel_id');
             $table->boolean('contestada')->default(0);
             $table->timestamps();
         });

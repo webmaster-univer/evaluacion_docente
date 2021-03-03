@@ -32,18 +32,32 @@
                                         <span class="text-center ml-2 font-semibold text-gray-500">{{$respuesta->descripcion}}   -</span>
                                     </td>
                                     <td>
+                                        @if($respuesta->puntos == 0)
+                                            <span class="ml-2 text-gray-700">Si</span>
+                                            <input required  type="radio" value="1" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
+                                            <span class="ml-2 text-gray-700">No</span>
+                                            <input required  type="radio" value="0" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
+
+                                        @else
                                         <input required  type="radio" value="{{$respuesta->puntos}}" name="pregunta{{$respuesta->pregunta_id}}" id="pregunta{{$respuesta->pregunta_id}}"   class="form-radio h-5 w-5 text-blue-600" >
                                         <span class="ml-2 text-gray-700"></span>
+
+                                        @endif
                                     </td>
                                 </tr>
                             @endif
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     @endforeach
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <label for="observaciones">Sugerencias</label>
+        <textarea class="form-control notemptyField" rows="5" id="observaciones" name="observaciones" ></textarea>
+    </div>
 <!--************************************************************   Botones   ****************************************************************-->
     <div class="flex justify-center">
         <div class="card-body p-4">
