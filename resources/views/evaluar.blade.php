@@ -33,11 +33,17 @@
                                     </td>
                                     <td>
                                         @if($respuesta->puntos == 0)
+                                            @if($respuesta->id == 18)
                                             <span class="ml-2 text-gray-700">Si</span>
-                                            <input required  type="radio" value="1" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
-                                            <span class="ml-2 text-gray-700">No</span>
                                             <input required  type="radio" value="0" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
-
+                                            <span class="ml-2 text-gray-700">No</span>
+                                            <input required  type="radio" value="1" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
+                                            @else
+                                                <span class="ml-2 text-gray-700">Si</span>
+                                                <input required  type="radio" value="1" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
+                                                <span class="ml-2 text-gray-700">No</span>
+                                                <input required  type="radio" value="0" name="pregunta{{$respuesta->id}}" id="pregunta{{$respuesta->id}}"   class="form-radio h-5 w-5 text-blue-600" >
+                                            @endif
                                         @else
                                         <input required  type="radio" value="{{$respuesta->puntos}}" name="pregunta{{$respuesta->pregunta_id}}" id="pregunta{{$respuesta->pregunta_id}}"   class="form-radio h-5 w-5 text-blue-600" >
                                         <span class="ml-2 text-gray-700"></span>
@@ -58,7 +64,7 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <label for="observaciones" class="font-semibold text-gray-500">Sugerencias:</label><br>
-        <textarea class="resize-none border-gray-300 font-semibold text-gray-800 w-full px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"></textarea>
+        <textarea required name="observaciones" class="resize-none border-gray-300 font-semibold text-gray-800 w-full px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"></textarea>
     </div>
 
 <!--************************************************************   Botones   ****************************************************************-->
