@@ -8,7 +8,11 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-<!-- ******************************   Inicia tabla   *****************************************-->
+                @if($finalizo == 1)
+                    <h1 class="text-center font-semibold text-xl text-gray-800 leading-tight">Muchas gracias por tu participación.
+                        Tus respuestas nos sirven para mejorar.</h1>
+                @endif
+                    <!-- ******************************   Inicia tabla   *****************************************-->
       <table class="min-w-full table-auto">
         <thead class="justify-between">
           <tr class="bg-gray-800">

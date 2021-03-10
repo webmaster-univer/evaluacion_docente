@@ -33,7 +33,13 @@ class PrincipalController extends Controller
             ->distinct()
          ->get();
 
-        return view('dashboard',compact('materias'));
+        $materiasContestadas = Materias::where('alumno',Auth::user()->name)->where('contestada' , 1)->count();
+        $finalizo = 0;
+        if ($materias->count() == $materiasContestadas)
+        {
+            $finalizo = 1;
+        }
+        return view('dashboard',compact('materias','finalizo'));
     }
     public function store(Request $request)
     {
