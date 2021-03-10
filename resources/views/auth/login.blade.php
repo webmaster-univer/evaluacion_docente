@@ -1,9 +1,6 @@
 <x-guest-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-                <img class="mb-3 mx-auto"  src="{{ asset('img/univer-logo-color-50h.png') }}" />
-        </x-slot>
-
+        
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -46,5 +43,6 @@
                 </x-jet-button>
             </div>
         </form>
+        
     </x-jet-authentication-card>
 </x-guest-layout>
