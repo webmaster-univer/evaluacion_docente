@@ -62,7 +62,7 @@
 
                     @if($materia->contestada == 0)
                     <div class="inline-block mr-2 mt-2">
-                        <button type="button" disabled class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-red-400 to-red-600 transform hover:scale-110">Sin cotestar</button>
+                        <button type="button" disabled class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gradient-to-r from-red-400 to-red-600 transform hover:scale-110">Sin contestar</button>
                     </div>
                     @else
                     <div class="inline-block mr-2 mt-2">
@@ -93,7 +93,7 @@
 
                 </div>
                 </form>
-  
+
         </div>
 
     </div>
