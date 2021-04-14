@@ -64,6 +64,7 @@ class PrincipalController extends Controller
                 'respuestas.puntos','preguntas.id AS preguntaID','respuestas.id AS respuestaID','respuestas.pregunta_id')
             ->get();
         */
+
         $respuestas = new Respuestas();
         $respuestas = $respuestas->all();
         $preguntas = new Preguntas();
@@ -127,7 +128,7 @@ class PrincipalController extends Controller
     public function CrearUsuarios()
     {
         $alumnos = new Alumnos();
-        $alumnos = $alumnos->where('id','>','3928')->get();
+        $alumnos = $alumnos->where('id','>',4069)->get();
 
         foreach ($alumnos as $alumno)
         {
@@ -135,7 +136,7 @@ class PrincipalController extends Controller
             $usuario->name = $alumno->nombre_completo;
             $usuario->username = $alumno->id_pwc;
             $usuario->email = $alumno->id_pwc."@alumnos.univer-gdl.edu.mx";
-            $usuario->password =Hash::make('123');
+            $usuario->password =Hash::make($alumno->curp);
             $usuario->alumno_id = $alumno->id;
             $usuario->save();
         }
@@ -145,7 +146,7 @@ class PrincipalController extends Controller
     public function AgregarIds()
     {
         $alumnos = new AlumnosGrupos();
-        $alumnos = $alumnos->all();
+        $alumnos = $alumnos->where('id','>',11008)->get();
 
         foreach ($alumnos as $alumno)
         {
