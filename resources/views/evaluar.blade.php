@@ -10,6 +10,7 @@
 <form method="POST" action="{{ route('principal.update',$docente->id) }}" aria-label="{{ __('Evaluacion') }}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
+    <h2 class="text-center font-semibold text-xl text-gray-800 leading-tight">Marca el enunciado que mejor representa tu opinión:</h2>
     @foreach($preguntas as $pregunta)
         <div class="py-6">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
