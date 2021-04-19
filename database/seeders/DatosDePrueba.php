@@ -161,7 +161,7 @@ class DatosDePrueba extends Seeder
             'puntos' => '0',
         ]);
         DB::table('respuestas')->insert([
-            'descripcion' => "¿Se nombró lista regularmente?",
+            'descripcion' => "¿El docente lleva un control de la asistencia?",
             'pregunta_id' => '6',
             'puntos' => '0',
         ]);
