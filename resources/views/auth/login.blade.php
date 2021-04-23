@@ -9,8 +9,9 @@
         @endif
         <form method="POST" action="{{ route('login') }}">
             @csrf
-           
-            Ingresa tu ID en usuario y en contraseña pones tu CURP para comenzar:<br><br>
+            <span class="ml-2 text-3xl text-black text-center font-bold"><h1>Bienvenido a la Evaluación Docente</h1></span>
+            <span class="ml-2 text-base text-gray-600 text-center font-medium"><h3>Es muy importante para nosotros conocer tu opinión sobre la conducción de tus cursos.</h3></span>
+            <span class="ml-2 text-base text-gray-600 text-center font-medium"><h4>Ingresa tu ID en usuario y en contraseña pones tu CURP para comenzar:</h4></span><br>
 
             <div>
                 <x-jet-label value="{{ __('Usuario / ID pwc') }}" />
