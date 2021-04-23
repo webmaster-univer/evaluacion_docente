@@ -1,6 +1,5 @@
 <x-guest-layout>
     <x-jet-authentication-card>
-
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -8,12 +7,10 @@
                 {{ session('status') }}
             </div>
         @endif
-
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            Bienvenido a la Evaluación Docente
-            Es muy importante para nosotros conocer tu opinión sobre la conducción de tus cursos.
-            Ingresa tu ID en usuario y en contraseña pones tu CURP para comenzar:
+           
+            Ingresa tu ID en usuario y en contraseña pones tu CURP para comenzar:<br><br>
 
             <div>
                 <x-jet-label value="{{ __('Usuario / ID pwc') }}" />
