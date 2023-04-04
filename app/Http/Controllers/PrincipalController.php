@@ -109,14 +109,21 @@ class PrincipalController extends Controller
         $resultados ->pregunta3 = $request->pregunta3;
         $resultados ->pregunta4 = $request->pregunta4;
         $resultados ->pregunta5 = $request->pregunta5;
-        $resultados ->pregunta6 = $request->pregunta16
-            + $request->pregunta17 + $request->pregunta18 + $request->pregunta19 + $request->pregunta20 + $request->pregunta21 + $request->pregunta22 + $request->pregunta23
-            + $request->pregunta24 + $request->pregunta25;
+        $resultados ->pregunta6 = $request->pregunta6;
+        $resultados ->pregunta7 = $request->pregunta7;
+        $resultados ->pregunta8 = $request->pregunta8;
+        $resultados ->pregunta9 = $request->pregunta9;
+        $resultados ->pregunta10 = $request->pregunta10;
+        $resultados ->pregunta11 = $request->pregunta11;
+        $resultados ->pregunta12 = $request->pregunta12;
+        $resultados ->pregunta13 = $request->pregunta13;
+        $resultados ->pregunta14 = $request->pregunta14;
         $resultados ->alumno_id = Auth::user()->id;
         $resultados ->plantel_id = $materias->plantel_id;
         $resultados ->grupo	 = $materias->grupo;
+        $resultados ->materia	 = $materias->descripcion;
         $resultados ->docente = $materias->docente;
-        $resultados ->total = $request->pregunta1 + $request->pregunta2 + $request->pregunta3 + $request->pregunta4 + $request->pregunta5 + $resultados ->pregunta6;
+        $resultados ->total = $request->pregunta1 + $request->pregunta2 + $request->pregunta3 + $request->pregunta4 + $request->pregunta5 + $resultados ->pregunta6 +$request->pregunta7 + $request->pregunta8 + $request->pregunta9 + $request->pregunta10 + $request->pregunta11 + $resultados ->pregunta12 + $resultados ->pregunta13 + $resultados ->pregunta14;
         $resultados ->observaciones = $request->observaciones;
         $resultados ->save();
 
@@ -128,9 +135,9 @@ class PrincipalController extends Controller
     public function CrearUsuarios()
     {
         $alumnos = new Alumnos();
-        $alumnos = $alumnos->where('id','>',4069)->get();
-
-        foreach ($alumnos as $alumno)
+        $alumnos = $alumnos->where('id','>',4981)->get();
+        
+        foreach ($alumnos as  $alumno)
         {
             $usuario = new User();
             $usuario->name = $alumno->nombre_completo;
@@ -139,21 +146,24 @@ class PrincipalController extends Controller
             $usuario->password =Hash::make($alumno->curp);
             $usuario->alumno_id = $alumno->id;
             $usuario->save();
+           
         }
+        
+        return "Listo";
 
 
     }
     public function AgregarIds()
     {
         $alumnos = new AlumnosGrupos();
-        $alumnos = $alumnos->where('id','>',11008)->get();
+        $alumnos = $alumnos->whereNull('alumno_id')->get();
 
         foreach ($alumnos as $alumno)
         {
 
-            $cambio = AlumnosGrupos::where('alumno',$alumno->alumno)->get();
+            $cambio = AlumnosGrupos::where('id_pwc',$alumno->id_pwc)->get();
             foreach ($cambio as $cambio){
-                $usuario = Alumnos::where('nombre_completo',$cambio->alumno)->first();
+                $usuario = Alumnos::where('id_pwc',$cambio->id_pwc)->first();
                 $cambio->alumno_id = $usuario->id;
                 $cambio->save();
             }
@@ -165,14 +175,15 @@ class PrincipalController extends Controller
     public function AgregarIdsGrupos()
     {
         $alumnos = new AlumnosGrupos();
-        $alumnos = $alumnos->all();
+        $alumnos = $alumnos->whereNull('grupo_id')->get();
 
         foreach ($alumnos as $alumno)
         {
 
-            $cambio = AlumnosGrupos::where('grupo',$alumno->grupo)->get();
+            $cambio = AlumnosGrupos::whereNull('grupo_id')->get();
             foreach ($cambio as $cambio){
                 $usuario = Grupos::where('descripcion',$cambio->grupo)->first();
+                //dd($cambio);
                 $cambio->grupo_id = $usuario->id;
                 $cambio->save();
             }
