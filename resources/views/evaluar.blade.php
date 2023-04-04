@@ -64,7 +64,7 @@
 <!--************************************************************   Textarea   ***************************************************************-->
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <label for="observaciones" class="font-semibold text-gray-500">Sugerencias:</label><br>
+        <label for="observaciones" class="font-semibold text-gray-500">Con la finalidad de mejorar,  ¿podrías darnos tus comentarios al respecto?</label><br>
         <textarea required name="observaciones" class="resize-none border-gray-300 font-semibold text-gray-800 w-full px-3 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"></textarea>
     </div>
 

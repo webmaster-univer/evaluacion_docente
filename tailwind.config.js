@@ -84,7 +84,7 @@ module.exports = {
       'gradient-to-bl': 'linear-gradient(to bottom left, var(--tw-gradient-stops))',
       'gradient-to-l': 'linear-gradient(to left, var(--tw-gradient-stops))',
       'gradient-to-tl': 'linear-gradient(to top left, var(--tw-gradient-stops))',
-      'hero-pattern': "url('/img/EVALUACIÓN.png')",
+      'hero-pattern': "url('/img/eva.png')",
     },
     backgroundOpacity: (theme) => theme('opacity'),
     backgroundPosition: {
